@@ -79,7 +79,7 @@ img {
    ================================ */
 .header {
     background: var(--white);
-    padding: var(--spacing-md) 0;
+    padding: 3px 0;
     box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
@@ -100,7 +100,7 @@ img {
 }
 
 .logo {
-    height: 40px;
+    height: 50px;
     margin: 0 auto;
     transition: transform var(--transition-normal);
 }
@@ -957,7 +957,7 @@ img {
     }
 
     .logo {
-        height: 50px;
+        height: 60px;
     }
 
     .hero .container {
