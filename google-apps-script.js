@@ -26,19 +26,14 @@ function doPost(e) {
     // تحليل البيانات المرسلة
     var data = JSON.parse(e.postData.contents);
     
-    // إضافة صف جديد بالبيانات - COD Format
+    // إضافة صف جديد بالبيانات - Ultra Simple COD Format
     sheet.appendRow([
       new Date(),                    // التاريخ والوقت
       data.orderRef || '',           // رقم الطلب
       data.name || '',               // الاسم الكامل
       data.phone || '',              // رقم الهاتف
-      data.email || '',              // البريد الإلكتروني
-      data.country || '',            // الدولة
-      data.city || '',               // المدينة
       data.address || '',            // العنوان الكامل
-      data.size || '',               // المقاس
-      data.quantity || '',           // الكمية
-      data.notes || ''               // ملاحظات
+      data.size || ''                // المقاس
     ]);
     
     // إرجاع استجابة ناجحة
@@ -90,23 +85,18 @@ function testFunction() {
 function setupSheet() {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   
-  // إضافة العناوين - COD Format
+  // إضافة العناوين - Ultra Simple COD Format
   sheet.appendRow([
     'التاريخ',
     'رقم الطلب',
     'الاسم الكامل',
     'رقم الهاتف',
-    'البريد الإلكتروني',
-    'الدولة',
-    'المدينة',
     'العنوان الكامل',
-    'المقاس',
-    'الكمية',
-    'ملاحظات'
+    'المقاس'
   ]);
   
   // تنسيق صف العناوين
-  var headerRange = sheet.getRange(1, 1, 1, 11);
+  var headerRange = sheet.getRange(1, 1, 1, 6);
   headerRange.setFontWeight('bold');
   headerRange.setBackground('#1a2b4a');
   headerRange.setFontColor('#ffffff');
@@ -117,13 +107,8 @@ function setupSheet() {
   sheet.setColumnWidth(2, 120);   // رقم الطلب
   sheet.setColumnWidth(3, 150);   // الاسم
   sheet.setColumnWidth(4, 130);   // الهاتف
-  sheet.setColumnWidth(5, 180);   // الإيميل
-  sheet.setColumnWidth(6, 100);   // الدولة
-  sheet.setColumnWidth(7, 120);   // المدينة
-  sheet.setColumnWidth(8, 250);   // العنوان
-  sheet.setColumnWidth(9, 80);    // المقاس
-  sheet.setColumnWidth(10, 80);   // الكمية
-  sheet.setColumnWidth(11, 200);  // ملاحظات
+  sheet.setColumnWidth(5, 300);   // العنوان
+  sheet.setColumnWidth(6, 80);    // المقاس
   
   Logger.log('تم إعداد الورقة بنجاح');
 }

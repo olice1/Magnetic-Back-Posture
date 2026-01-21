@@ -17,22 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
             // Generate order reference
             const orderRef = 'JDX' + Date.now().toString().slice(-8);
             
-            // Get form data
+            // Get form data - Ultra Simple COD Format
             const formData = {
                 orderRef: orderRef,
                 name: document.getElementById('name').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                country: document.getElementById('country').value,
-                city: document.getElementById('city').value.trim(),
                 address: document.getElementById('address').value.trim(),
-                size: document.getElementById('size').value,
-                quantity: document.getElementById('quantity').value,
-                notes: document.getElementById('notes').value.trim()
+                size: document.getElementById('size').value
             };
             
             // Basic validation
-            if (!formData.name || !formData.phone || !formData.country || !formData.city || !formData.address || !formData.size) {
+            if (!formData.name || !formData.phone || !formData.address || !formData.size) {
                 showNotification('يرجى ملء جميع الحقول المطلوبة', 'error');
                 return;
             }
@@ -42,15 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!phoneRegex.test(formData.phone)) {
                 showNotification('يرجى إدخال رقم هاتف صحيح', 'error');
                 return;
-            }
-            
-            // Email validation (if provided)
-            if (formData.email) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(formData.email)) {
-                    showNotification('يرجى إدخال بريد إلكتروني صحيح', 'error');
-                    return;
-                }
             }
             
             // Disable submit button to prevent double submission
@@ -83,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             item_name: 'Back Posture Corrector',
                             item_category: 'Health & Wellness',
                             item_variant: formData.size,
-                            quantity: parseInt(formData.quantity)
+                            quantity: 1
                         }]
                     });
                     console.log('✅ Google Analytics Lead event tracked');
