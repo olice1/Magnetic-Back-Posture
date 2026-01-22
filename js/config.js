@@ -6,8 +6,8 @@
 
 const CONFIG = {
     // Facebook Pixel ID
-    // احصل عليه من: Facebook Events Manager > Pixels
-    FACEBOOK_PIXEL_ID: '1518638202769696',
+    // احصل عليه من: Facebook Events Manager * COD partner ad account *> Pixels
+    FACEBOOK_PIXEL_ID: '2728172237518678',
     
     // Google Analytics 4 Measurement ID
     // احصل عليه من: GA4 > Admin > Data Streams
